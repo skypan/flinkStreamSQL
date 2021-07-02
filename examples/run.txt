@@ -1,0 +1,1 @@
+./bin/submit.sh -mode standalone -sql ./examples/kafka_to_mysql.sql -name kafka_to_mysql -localSqlPluginPath ./sqlplugins -remoteSqlPluginPath  ./sqlplugins -flinkconf $FLINK_HOME/conf -flinkJarPath $FLINK_HOME/lib -pluginLoadMode classpath -confProp {\"logLevel\":\"info\"}
