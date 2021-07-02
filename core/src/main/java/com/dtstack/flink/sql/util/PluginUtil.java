@@ -154,6 +154,7 @@ public class PluginUtil {
         String jarPath = localSqlPluginPath + SP + dirName;
         String jarName = getCoreJarFileName(jarPath, prefix, pluginLoadMode);
         String sqlRootDir = remoteSqlRootDir == null ? localSqlPluginPath : remoteSqlRootDir;
+        // URL以file:开头
         return new URL("file:" + sqlRootDir + SP + dirName + SP + jarName);
     }
 

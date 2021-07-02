@@ -139,6 +139,7 @@ public class LauncherMain {
 
         switch (execMode) {
             case local:
+                // 本地模式提交
                 Main.main(jobParamsInfo.getExecArgs());
                 break;
             case yarn:
@@ -148,6 +149,7 @@ public class LauncherMain {
                 new YarnJobClusterExecutor(jobParamsInfo).exec();
                 break;
             case standalone:
+                // standalone模式提交
                 new StandaloneExecutor(jobParamsInfo).exec();
                 break;
             default:

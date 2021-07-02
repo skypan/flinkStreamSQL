@@ -77,6 +77,7 @@ public class JobGraphBuildUtil {
                 .build();
 
         Configuration flinkConfig = getFlinkConfiguration(flinkConfDir, confProperties);
+        // 此处会回调coreJarFile中的Main.main
         JobGraph jobGraph = PackagedProgramUtils.createJobGraph(program, flinkConfig, parallelism, false);
         return jobGraph;
     }

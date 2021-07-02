@@ -336,6 +336,7 @@ public class ExecuteProcessHelper {
             // 配置dirty manager
             tableInfo.setDirtyProperties(dirtyProperties);
 
+            // 源表注册
             if (tableInfo instanceof AbstractSourceTableInfo) {
 
                 AbstractSourceTableInfo sourceTableInfo = (AbstractSourceTableInfo) tableInfo;
@@ -368,6 +369,7 @@ public class ExecuteProcessHelper {
                 URL sourceTablePathUrl = PluginUtil.buildSourceAndSinkPathByLoadMode(tableInfo.getType(), AbstractSourceTableInfo.SOURCE_SUFFIX, localSqlPluginPath, remoteSqlPluginPath, pluginLoadMode);
                 pluginClassPathSets.add(sourceTablePathUrl);
             } else if (tableInfo instanceof AbstractTargetTableInfo) {
+                // 目标表注册
                 TableSink tableSink = StreamSinkFactory.getTableSink((AbstractTargetTableInfo) tableInfo, localSqlPluginPath, pluginLoadMode);
                 // TODO Kafka Sink直接注册，其他的Sink要修复才可以。
                 if (tableInfo.getType().startsWith("kafka")) {
