@@ -99,6 +99,7 @@ public final class StreamEnvConfigManager {
             }
         });
 
+        // 设置重启策略
         if(isRestore(confProperties).get()){
             streamEnv.setRestartStrategy(RestartStrategies.failureRateRestart(
                     ConfigConstrant.FAILUEE_RATE,

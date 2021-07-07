@@ -38,6 +38,7 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
         ParamsInfo paramsInfo = ExecuteProcessHelper.parseParams(args);
+        // 获取流执行环境
         StreamExecutionEnvironment env = ExecuteProcessHelper.getStreamExecution(paramsInfo);
         env.execute(paramsInfo.getName());
         LOG.info("program {} execution success", paramsInfo.getName());
