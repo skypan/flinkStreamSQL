@@ -99,7 +99,7 @@ public final class StreamEnvConfigManager {
             }
         });
 
-        // 设置重启策略
+        // 如果开启重试策略，需要设置重试次数，重试间隔，延时时间
         if(isRestore(confProperties).get()){
             streamEnv.setRestartStrategy(RestartStrategies.failureRateRestart(
                     ConfigConstrant.FAILUEE_RATE,

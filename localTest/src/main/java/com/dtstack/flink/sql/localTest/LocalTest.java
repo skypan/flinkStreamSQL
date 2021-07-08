@@ -50,12 +50,12 @@ public class LocalTest {
         setLogLevel("INFO");
 
         List<String> propertiesList = new ArrayList<>();
-        String sqlPath = "/Users/wtz/dtstack/sql/test/FileDemoOne.sql";
+        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\examples\\complexkafka_to_stream.sql";
         Map<String, Object> conf = new HashMap<>();
         JSONObject properties = new JSONObject();
 
         //其他参数配置
-        properties.put("time.characteristic", "eventTime");
+//        properties.put("time.characteristic", "eventTime");
         properties.put("timezone", TimeZone.getDefault());
         properties.put("early.trigger", "1");
 
