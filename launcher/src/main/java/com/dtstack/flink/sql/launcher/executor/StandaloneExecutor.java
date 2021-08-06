@@ -57,12 +57,15 @@ public class StandaloneExecutor {
                 "standalone only supports classpath mode");
 
         JobGraph jobGraph = JobGraphBuildUtil.buildJobGraph(jobParamsInfo);
+        // TODO 获取flink-conf.yaml的配置
         Configuration flinkConfiguration = JobGraphBuildUtil.getFlinkConfiguration(jobParamsInfo.getFlinkConfDir(), jobParamsInfo.getConfProperties());
 
         if (!StringUtils.isBlank(jobParamsInfo.getUdfJar())) {
+            // TODO jobGraph添加udf的包
             JobGraphBuildUtil.fillUserJarForJobGraph(jobParamsInfo.getUdfJar(), jobGraph);
         }
 
+        // TODO 设置classpath
         JobGraphBuildUtil.fillJobGraphClassPath(jobGraph);
 
         ClusterDescriptor clusterDescriptor = StandaloneClientFactory.INSTANCE.createClusterDescriptor("", flinkConfiguration);

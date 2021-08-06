@@ -45,7 +45,7 @@
 
         <!-- 脏数据插件 -->
         <module>dirtyData</module>
-<!--        <module>localTest</module>-->
+        <module>localTest</module>
 
     </modules>
 

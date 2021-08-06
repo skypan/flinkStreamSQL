@@ -7,6 +7,7 @@ import org.junit.Test;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.util.Map;
+import java.util.Properties;
 
 public class PluginUtilTest {
 
@@ -72,6 +73,8 @@ public class PluginUtilTest {
     @Test
     public void jsonStrToObject() throws IOException {
         Assert.assertEquals(PluginUtil.jsonStrToObject("true", Boolean.class), true);
+
+        PluginUtil.jsonStrToObject(" {\"sql.checkpoint.interval\":\"60000\",\"savePointPath\":\"/opt/flink-1.10.1/flink-checkpoints/8a26eeeb24f228936240914545099ff4/chk-21807\"}", Properties.class);
     }
 
     @Test

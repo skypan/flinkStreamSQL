@@ -66,8 +66,11 @@ public class JobGraphBuildUtil {
         int parallelism = MathUtil.getIntegerVal(confProperties.getProperty(ConfigConstrant.SQL_ENV_PARALLELISM, "1"));
         String flinkConfDir = jobParamsInfo.getFlinkConfDir();
 
+        // TODO execArgs额外的参数
         String[] execArgs = jobParamsInfo.getExecArgs();
+        // TODO main包所在路径
         File coreJarFile = new File(findLocalCoreJarPath(jobParamsInfo.getLocalPluginRoot(), jobParamsInfo.getPluginLoadMode()));
+        // TODO 获取flink的savepoints配置
         SavepointRestoreSettings savepointRestoreSettings = dealSavepointRestoreSettings(jobParamsInfo.getConfProperties());
 
         PackagedProgram program = PackagedProgram.newBuilder()
@@ -76,8 +79,9 @@ public class JobGraphBuildUtil {
                 .setSavepointRestoreSettings(savepointRestoreSettings)
                 .build();
 
+        // TODO 合并flink-conf.yaml和confProp的配置
         Configuration flinkConfig = getFlinkConfiguration(flinkConfDir, confProperties);
-        // 此处会回调coreJarFile中的Main.main
+        // TODO 此处会回调coreJarFile中的Main.main
         JobGraph jobGraph = PackagedProgramUtils.createJobGraph(program, flinkConfig, parallelism, false);
         return jobGraph;
     }
@@ -85,6 +89,7 @@ public class JobGraphBuildUtil {
 
     protected static SavepointRestoreSettings dealSavepointRestoreSettings(Properties confProperties) {
         SavepointRestoreSettings savepointRestoreSettings = SavepointRestoreSettings.none();
+        // TODO 获取savePointPath的路径
         String savePointPath = confProperties.getProperty(ConfigConstrant.SAVE_POINT_PATH_KEY);
         if (StringUtils.isNotBlank(savePointPath)) {
             String allowNonRestoredState = confProperties.getOrDefault(ConfigConstrant.ALLOW_NON_RESTORED_STATE_KEY, "false").toString();
@@ -94,6 +99,7 @@ public class JobGraphBuildUtil {
     }
 
     public static Configuration getFlinkConfiguration(String flinkConfDir, Properties confProperties) {
+        // TODO 加载全局路径flink-conf.yaml
         Configuration flinkConfig = StringUtils.isEmpty(flinkConfDir) ? new Configuration() : GlobalConfiguration.loadConfiguration(flinkConfDir);
 
         confProperties.forEach((key, val) -> flinkConfig.setString(key.toString(), val.toString()));
