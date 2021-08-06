@@ -86,6 +86,10 @@ sh submit.sh
  ```
 ./bin/submit.sh -mode standalone -sql ./examples/kafka_to_mysql.sql -name kafka_to_mysql.sql -localSqlPluginPath $FLINK_STREAM_SQL/sqlplugins -remoteSqlPluginPath  $FLINK_STREAMSQL/sqlplugins -flinkconf $FLINK_HOME/conf  -pluginLoadMode classpath -confProp {\"logLevel\":\"info\"}
 ```
+
+```sql
+./bin/submit.sh -mode standalone -sql ./examples/kafka_to_mysql.sql -name kafka_to_mysql -localSqlPluginPath /opt/flinkStreamSQL/sqlplugins -remoteSqlPluginPath /opt/flinkStreamSQL/sqlplugins -flinkconf /opt/flink-1.10.1/conf -pluginLoadMode classpath -confProp '{"sql.checkpoint.interval":5000,"savePointPath":"/opt/flink-1.10.1/checkpoints/d1a2c246cc7869cd154bea8cfdb6eb71/chk-42"}'
+```
  参数说明
  mode   启动模式，standalone模式需要  
  sql    提交的任务脚本  
