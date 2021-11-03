@@ -53,7 +53,7 @@ public class LocalTest {
         // mysql jizy_flink_copy_kafka_mysql.sql
         // mssql  mssql_kafka_mysql.sql
         // oracle oracle_kafka_mysql.sql
-        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\examples\\kafka_to_mysql.sql";
+        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\examples\\offset_2.sql";
         Map<String, Object> conf = new HashMap<>();
         JSONObject properties = new JSONObject();
 
@@ -63,7 +63,11 @@ public class LocalTest {
         properties.put("early.trigger", "1");
         // TODO 定义CheckPoint 5秒中生成一次
         properties.put("sql.checkpoint.interval", 5000);
-        properties.put("sql.checkpoint.interval", 5000);
+        properties.put("state.checkpoints.dir", "file:///D:\\tmp");
+        properties.put("state.backend", "ROCKSDB");
+        properties.put("sql.max.concurrent.checkpoints", 10);
+        properties.put("sql.checkpoint.cleanup.mode", false);
+        // CheckPoint不删除
 
         // 任务配置参数
         conf.put("-sql", URLEncoder.encode(readSQL(sqlPath), StandardCharsets.UTF_8.name()));
