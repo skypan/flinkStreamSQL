@@ -51,11 +51,11 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <!--        <dependency>-->
-        <!--            <groupId>com.dtstack.flink</groupId>-->
-        <!--            <artifactId>sql.source.kafka</artifactId>-->
-        <!--            <version>1.0-SNAPSHOT</version>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>com.dtstack.flink</groupId>
+            <artifactId>sql.source.kafka</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
 
         <!--        <dependency>-->
         <!--            <groupId>com.dtstack.flink</groupId>-->
@@ -81,11 +81,11 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.dtstack.flink</groupId>
-            <artifactId>sql.source.kafka11</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.dtstack.flink</groupId>-->
+<!--            <artifactId>sql.source.kafka11</artifactId>-->
+<!--            <version>1.0-SNAPSHOT</version>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.dtstack.flink</groupId>
@@ -160,29 +160,29 @@
             <version>1.0-SNAPSHOT</version>
         </dependency>
 
-        <dependency>
-            <groupId>com.dtstack.flink</groupId>
-            <artifactId>sql.impala</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.dtstack.flink</groupId>-->
+        <!--            <artifactId>sql.impala</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.dtstack.flink</groupId>
-            <artifactId>sql.side.all.impala</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.dtstack.flink</groupId>-->
+        <!--            <artifactId>sql.side.all.impala</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.dtstack.flink</groupId>
-            <artifactId>sql.sink.impala</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.dtstack.flink</groupId>-->
+        <!--            <artifactId>sql.sink.impala</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.dtstack.flink</groupId>
-            <artifactId>sql.side.async.impala</artifactId>
-            <version>1.0-SNAPSHOT</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.dtstack.flink</groupId>-->
+        <!--            <artifactId>sql.side.async.impala</artifactId>-->
+        <!--            <version>1.0-SNAPSHOT</version>-->
+        <!--        </dependency>-->
 
 
         <dependency>
@@ -260,6 +260,18 @@
         <dependency>
             <groupId>com.dtstack.flink</groupId>
             <artifactId>sql.console</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dtstack.flink</groupId>
+            <artifactId>sql.dorisdb</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.dtstack.flink</groupId>
+            <artifactId>sql.sink.dorisdb</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
 

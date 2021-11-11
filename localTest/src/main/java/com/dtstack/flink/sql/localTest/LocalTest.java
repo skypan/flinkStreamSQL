@@ -50,7 +50,8 @@ public class LocalTest {
         setLogLevel("INFO");
 
         List<String> propertiesList = new ArrayList<>();
-        String sqlPath = "/Users/wtz/dtstack/sql/test/JoinDemoThree.sql";
+        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_dorisdb.sql";
+//        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_console.sql";
         Map<String, Object> conf = new HashMap<>();
         JSONObject properties = new JSONObject();
 
@@ -67,6 +68,8 @@ public class LocalTest {
         conf.put("-pluginLoadMode", "LocalTest");
         conf.put("-planner", "flink");
         conf.put("-dirtyProperties", buildDirtyStr());
+        // -localSqlPluginPath F:\dtstack\project\flinkStreamSQL\plugins
+//        conf.put("-localSqlPluginPath", "D:\\work\\workspace\\flinkStreamSQL\\sqlplugins");
 
         for (Map.Entry<String, Object> keyValue : conf.entrySet()) {
             propertiesList.add(keyValue.getKey());
