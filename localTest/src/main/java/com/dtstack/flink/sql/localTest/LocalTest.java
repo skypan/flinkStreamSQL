@@ -50,8 +50,8 @@ public class LocalTest {
         setLogLevel("INFO");
 
         List<String> propertiesList = new ArrayList<>();
-        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_dorisdb2.sql";
-//        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_console.sql";
+//        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_dorisdb2.sql";
+        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\rabbitmq_rabbitmq.sql";
         Map<String, Object> conf = new HashMap<>();
         JSONObject properties = new JSONObject();
 

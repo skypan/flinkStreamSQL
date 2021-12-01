@@ -9,35 +9,40 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sql.dorisdb</artifactId>
+    <artifactId>sql.rabbitmq</artifactId>
     <packaging>pom</packaging>
-
     <modules>
-        <module>dorisdb-sink</module>
-        <module>dorisdb-core</module>
+        <module>rabbitmq-core</module>
+        <module>rabbitmq-source</module>
+        <module>rabbitmq-sink</module>
     </modules>
 
     <properties>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
     </properties>
 
-    <repositories>
-        <repository>
-            <id>dorisdb-maven-releases</id>
-            <url>http://dorisdbvisitor:dorisdbvisitor134@nexus.dorisdb.com/repository/maven-releases/</url>
-        </repository>
-        <repository>
-            <id>dorisdb-maven-snapshots</id>
-            <url>http://dorisdbvisitor:dorisdbvisitor134@nexus.dorisdb.com/repository/maven-snapshots/</url>
-        </repository>
-    </repositories>
-
     <dependencies>
+
         <dependency>
             <groupId>com.dtstack.flink</groupId>
             <artifactId>sql.core</artifactId>
             <version>${project.version}</version>
             <scope>provided</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-connector-rabbitmq_${scala.binary.version}</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.flink</groupId>
+            <artifactId>flink-json</artifactId>
+            <version>${flink.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>

@@ -41,6 +41,7 @@
         <!-- 脏数据插件 -->
         <module>dirtyData</module>
         <module>dorisdb</module>
+        <module>rabbitmq</module>
         <!--        <module>localTest</module>-->
 
     </modules>

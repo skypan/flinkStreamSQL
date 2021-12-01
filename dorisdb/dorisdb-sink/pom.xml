@@ -26,7 +26,7 @@
         <dependency>
             <groupId>com.dtstack.flink</groupId>
             <artifactId>dorisdb-core</artifactId>
-            <version>1.0-SNAPSHOT</version>
+            <version>${project.version}</version>
         </dependency>
     </dependencies>
 
