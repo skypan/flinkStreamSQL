@@ -53,8 +53,8 @@ public class SerializationMetricWrapper implements SerializationSchema<Tuple2<Bo
     }
 
     public void initMetric() {
-        // dtNumRecordsOut = runtimeContext.getMetricGroup().counter(MetricConstant.DT_NUM_RECORDS_OUT);
-        // dtNumRecordsOutRate = runtimeContext.getMetricGroup().meter(MetricConstant.DT_NUM_RECORDS_OUT_RATE, new MeterView(dtNumRecordsOut, 20));
+        dtNumRecordsOut = runtimeContext.getMetricGroup().counter(MetricConstant.DT_NUM_RECORDS_OUT);
+        dtNumRecordsOutRate = runtimeContext.getMetricGroup().meter(MetricConstant.DT_NUM_RECORDS_OUT_RATE, new MeterView(dtNumRecordsOut, 20));
     }
 
     @Override
@@ -82,11 +82,5 @@ public class SerializationMetricWrapper implements SerializationSchema<Tuple2<Bo
 
     public SerializationSchema<Tuple2<Boolean,Row>> getSerializationSchema() {
         return serializationSchema;
-    }
-
-    @Override
-    public void open(InitializationContext context) throws Exception {
-         dtNumRecordsOut = context.getMetricGroup().counter(MetricConstant.DT_NUM_RECORDS_OUT);
-         dtNumRecordsOutRate = context.getMetricGroup().meter(MetricConstant.DT_NUM_RECORDS_OUT_RATE, new MeterView(dtNumRecordsOut, 20));
     }
 }

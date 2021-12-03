@@ -89,7 +89,7 @@ public class RabbitmqSink implements RetractStreamTableSink<Row>, IStreamSinkGen
                 .setVirtualHost("/").build();
 
         // 反序列化
-        RMQSink<Tuple2<Boolean, Row>> rmqSink = new RMQSink<>(config, this.queueName, this.serializationSchema);
+        RMQCustomSink<Tuple2<Boolean, Row>> rmqSink = new RMQCustomSink<>(config, this.queueName, this.serializationSchema);
 
         DataStreamSink<Tuple2<Boolean, Row>> streamSink = dataStream.addSink(rmqSink);
         if (parallelism > 0) {
