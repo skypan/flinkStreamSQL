@@ -129,7 +129,8 @@ public class DirtyDataManager implements Serializable {
     public void collectDirtyData(String dataInfo, String cause) {
         DirtyDataEntity dirtyDataEntity = new DirtyDataEntity(dataInfo, System.currentTimeMillis(), cause);
         try {
-            consumer.collectDirtyData(dirtyDataEntity, blockingInterval);
+            if (consumer != null)
+                consumer.collectDirtyData(dirtyDataEntity, blockingInterval);
             count.incrementAndGet();
         } catch (Exception ignored) {
             LOG.warn("dirty Data insert error ... Failed number: " + errorCount.incrementAndGet());
@@ -146,6 +147,9 @@ public class DirtyDataManager implements Serializable {
      * 查看consumer当前状态
      */
     public boolean checkConsumer() {
+        // 提交到flink之后，此对象为空
+        if (consumer == null)
+            return false;
         return consumer.isRunning();
     }
 }
