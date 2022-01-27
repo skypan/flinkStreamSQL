@@ -64,7 +64,7 @@ public class DorisdbSink extends AbstractRdbSink implements IStreamSinkGener<Abs
     @Override
     public DataStreamSink<?> consumeDataStream(DataStream<Tuple2<Boolean, Row>> dataStream) {
         // DorisSink
-        SinkFunction<Tuple2<Boolean, Row>> sinkFunction = DorisSink.sink(getTableSchema(), buildDorisSinkOptions(), new CustomDorisSinkRowBuilder(getFieldNames()));
+        SinkFunction<Tuple2<Boolean, Row>> sinkFunction = DorisSink.sink(getTableSchema(), buildDorisSinkOptions(), new CustomDorisSinkRowBuilder(getFieldNames(),getTableSchema().getFieldDataTypes()));
         DataStreamSink<Tuple2<Boolean, Row>> streamSink = dataStream.addSink(sinkFunction).setParallelism(this.parallelism).name(registerTabName);
         return streamSink;
     }
