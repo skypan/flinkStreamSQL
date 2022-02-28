@@ -20,6 +20,7 @@ package com.dtstack.flink.sql.localTest;
 
 import ch.qos.logback.classic.Level;
 import ch.qos.logback.classic.LoggerContext;
+import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import com.dtstack.flink.sql.Main;
 import org.slf4j.Logger;
@@ -30,11 +31,7 @@ import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TimeZone;
+import java.util.*;
 
 /**
  * @author tiezhu
@@ -51,7 +48,7 @@ public class LocalTest {
 
         List<String> propertiesList = new ArrayList<>();
 //        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\kafka_dorisdb2.sql";
-        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\rabbitmq_rabbitmq_demo.sql";
+        String sqlPath = "D:\\work\\workspace\\flinkStreamSQL\\localTest\\src\\main\\resources\\examples\\doris_error2.sql";
         Map<String, Object> conf = new HashMap<>();
         JSONObject properties = new JSONObject();
 
@@ -68,6 +65,9 @@ public class LocalTest {
         conf.put("-pluginLoadMode", "LocalTest");
         conf.put("-planner", "flink");
         conf.put("-dirtyProperties", buildDirtyStr());
+
+        // List<String> jarPath = Arrays.asList("D:\\work\\workspace\\epointflinkudf\\target\\epointflinkudf-4.1.jar");
+        // conf.put("-addjar", JSON.toJSONString(jarPath));
         // -localSqlPluginPath F:\dtstack\project\flinkStreamSQL\plugins
 //        conf.put("-localSqlPluginPath", "D:\\work\\workspace\\flinkStreamSQL\\sqlplugins");
 

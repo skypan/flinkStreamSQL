@@ -8,11 +8,20 @@ import com.dtstack.flink.sql.sink.rdb.AbstractRdbSink;
 import com.dtstack.flink.sql.sink.rdb.JDBCOptions;
 import com.dtstack.flink.sql.sink.rdb.format.JDBCUpsertOutputFormat;
 import com.dtstack.flink.sql.table.AbstractTargetTableInfo;
+import org.apache.flink.api.common.typeinfo.TypeInformation;
 import org.apache.flink.api.java.tuple.Tuple2;
 import org.apache.flink.streaming.api.datastream.DataStream;
 import org.apache.flink.streaming.api.datastream.DataStreamSink;
 import org.apache.flink.streaming.api.functions.sink.SinkFunction;
+import org.apache.flink.table.api.TableColumn;
+import org.apache.flink.table.api.TableException;
+import org.apache.flink.table.api.TableSchema;
+import org.apache.flink.table.types.DataType;
+import org.apache.flink.table.types.utils.TypeConversions;
 import org.apache.flink.types.Row;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * DorisDB Sink
@@ -85,4 +94,22 @@ public class DorisdbSink extends AbstractRdbSink implements IStreamSinkGener<Abs
 
         return builder.build();
     }
+
+//    @Override
+//    public TableSchema getTableSchema() {
+//        String[] fieldNames = this.getFieldNames();
+//        TypeInformation<?>[] fieldTypes = this.getFieldTypes();
+//        if (fieldNames != null && fieldTypes != null) {
+//            DataType[] fieldDataTypes = TypeConversions.fromLegacyInfoToDataType(fieldTypes);
+//            TableSchema.Builder builder = TableSchema.builder();
+//            builder.fields(fieldNames, fieldDataTypes);
+//            if (this.primaryKeys != null && this.primaryKeys.size() > 0) {
+//                builder.primaryKey(this.primaryKeys.toArray(new String[]{}));
+//            }
+//            return builder.build();
+//        }
+//        else {
+//            throw new TableException("Table sink does not implement a table schema.");
+//        }
+//    }
 }

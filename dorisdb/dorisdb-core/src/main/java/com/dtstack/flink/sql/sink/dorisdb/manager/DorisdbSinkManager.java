@@ -75,7 +75,8 @@ public class DorisdbSinkManager implements Serializable {
         typesMap.put("smallint", Lists.newArrayList(LogicalTypeRoot.SMALLINT, LogicalTypeRoot.INTEGER, LogicalTypeRoot.BINARY));
         typesMap.put("varchar", Lists.newArrayList(LogicalTypeRoot.VARCHAR, LogicalTypeRoot.ARRAY, LogicalTypeRoot.MAP, LogicalTypeRoot.ROW));
         typesMap.put("string", Lists.newArrayList(LogicalTypeRoot.CHAR, LogicalTypeRoot.VARCHAR, LogicalTypeRoot.ARRAY, LogicalTypeRoot.MAP, LogicalTypeRoot.ROW));
-        validateTableStructure(flinkSchema);
+        // TODO 暂时不做验证，primary key 暂时有点问题
+        // validateTableStructure(flinkSchema);
         this.DorisdbStreamLoadVisitor = new DorisdbStreamLoadVisitor(sinkOptions, null == flinkSchema ? new String[]{} : flinkSchema.getFieldNames());
     }
 

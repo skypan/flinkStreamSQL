@@ -1,20 +1,24 @@
-CREATE TABLE testfordoris
+CREATE TABLE M_MYSB_HZ_SJGDXX
 (
-    rowguid varchar
+    data[0].allfields.after_data.RegisterTime.value timestamp as gddjsj,
+    data[0].allfields.after_data.RqstAreacode.value varchar as sjfsdxzqhbh,
+    data[0].allfields.after_data.RqstType.value varchar as sqlxbm,
+    data[0].allfields.after_data.gdbh.value varchar as gdbh
 )
     WITH (
         type = 'kafka',
-        groupId = 'group1',
         bootstrapServers = '192.168.204.117:9092',
         zookeeperQuorum = '192.168.204.117:2181',
         offsetReset = 'latest',
-        timezone = 'Asia/Shanghai',
-        topic = 'gcb_test');
+        timestampoffset = '1641001742000',
+        timezone = 'Asia/Shanghai',topic = 'cdctopic_oqchw');
 
-CREATE TABLE test
+CREATE TABLE M_MYSB_HZ_SJGDXX2
 (
-    rowguid varchar,
-    primary key (gdbh)
+    gdbh        varchar,
+    gddjsj      datetime,
+    sjfsdxzqhbh varchar,
+    sqlxbm      varchar
 )
     WITH (
         type = 'dorisdb',
@@ -23,7 +27,7 @@ CREATE TABLE test
         jdbcUrl = 'jdbc:mysql://192.168.186.66:9030',
         loadUrl = '192.168.186.66:8030',
         databaseName = 'dorisdb_test',
-        tableName = 'testtable_gucb',
+        tableName = 'M_MYSB_HZ_SJGDXX2',
         userName = 'test_user',
         password = '11111',
         sink.properties.strip_outer_array = 'true',
@@ -35,7 +39,4 @@ CREATE TABLE test
         fastCheck = 'false'
         );
 
-
-insert into test
-select *
-from testfordoris
+insert into M_MYSB_HZ_SJGDXX2 select * from M_MYSB_HZ_SJGDXX
